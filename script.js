@@ -1,25 +1,28 @@
 
 //1-----------------------------------------------------------
 const logInBtn = document.getElementById('logInClickBtn');
-logInBtn.addEventListener('click', () => {
-    logInBtn.textContent = 'Don\'t click me anymore!';
+logInBtn.addEventListener('click', function () {
+    this.textContent = 'Don\'t click me anymore!';
 })
 
 //2-----------------------------------------------------------
 const signUpBtn = document.getElementById('signInClickBtn');
-signUpBtn.addEventListener('click', () => {
-    signUpBtn.style.backgroundColor = 'black';
+signUpBtn.addEventListener('click', function () {
+    this.style.backgroundColor = 'black';
 })
 
 //3-----------------------------------------------------------
 const imageFirst = document.querySelector('.firstImage');
 
 imageFirst.addEventListener('mouseover', () => {
-    imageFirst.src = './assets/img/flowers-2.jpg';
-    imageFirst.alt = 'another flowers';
+    changePicture('./assets/img/flowers-2.jpg', 'another flowers');
 });
 
 imageFirst.addEventListener("mouseout", () => {
-    imageFirst.src = './assets/img/flowers-1.jpg';
-    imageFirst.alt = 'flowers';
+    changePicture('./assets/img/flowers-1.jpg', 'flowers')
 });
+
+function changePicture (srcPic, altPic) {
+    imageFirst.src = srcPic;
+    imageFirst.alt = altPic;
+}
